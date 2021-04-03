@@ -12,13 +12,25 @@ var rafa = {
     assistencias: 5,
     AMA: 0
 }
-
+function Jogador(nome) {
+    this.nome=nome;
+    this.abates= 0;
+    this.mortes= 0;
+    this.assistencias= 0;
+    this.AMA= 0;
+}
 var jogadores=[rafa,paulo]
 function calculaAMA(jogador) {
     let abates = jogador.abates
     let mortes = jogador.mortes
     let assistencias = jogador.assistencias
-    let AMA= (abates + assistencias) / mortes
+    let =0
+    if (mortes==0) {
+        AMA= (abates + assistencias)
+    }
+    else{
+        AMA= (abates + assistencias) / mortes
+    }
     jogador.AMA=AMA.toFixed(1)
 }
 function exibirJogadores(jogadores) {
@@ -39,7 +51,9 @@ function exibirJogadores(jogadores) {
 }
 function criaJogador() {
     nomeJogador=document.getElementById('novoJogador').value;
-
+    const name = new Jogador(nomeJogador);
+    jogadores.push(name)
+    exibirJogadores(jogadores)
 }
 function adicionarAbates(indice) {
     jogador = jogadores[indice];
